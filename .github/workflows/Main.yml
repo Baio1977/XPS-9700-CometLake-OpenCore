@@ -26,18 +26,18 @@ jobs:
       run: |
         rm -Rf screenshot
         rm -Rf .gitignore
-        rm -Rf "XPS 9730 MacbookAir 9.1.ioreg"
+        rm -Rf "XPS 9700 MacbookAir 9.1.ioreg"
         rm -Rf README.md
         rm -Rf ".github"
         rm -Rf ".git"
         
-        zip -r DellXPS9730RaptorLake.zip .
+        zip -r DellXPS9700RAlderLake.zip .
         
     - name: Upload artifact
       uses: actions/upload-artifact@v4.6.2
       with:
-        name: DellXPS9730RaptorLake
-        path: DellXPS9730RaptorLake.zip
+        name: DellXPS9700RAlderLake
+        path: DellXPS9700RAlderLake.zip
         
     - name: Upload build
       uses: svenstaro/upload-release-action@2.9.0
@@ -46,7 +46,7 @@ jobs:
          repo_token: ${{ secrets.GITHUB_TOKEN }}
          file: ./*.zip
          tag: ${{ github.ref }}
-         release_name: EFI DellXPS9730 Hackintosh
+         release_name: EFI DellXPS9700 Hackintosh
          body: ${{ github.event_name != 'release' && github.event.head_commit.message || '' }}
          file_glob: true
          overwrite: true
